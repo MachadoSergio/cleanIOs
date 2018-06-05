@@ -14,6 +14,11 @@ import SimplePDF
 class RapportAnnuelViewController: UIViewController {
     
     var messageController: MFMailComposeViewController!
+    var zoneRouge: Float = 0.0
+    var zonneBleu: Float = 0.0
+    var numZoneRouge = 0
+    var numZOneBlue = 0
+    
     
     var myRapport: [String:[ZoneControl]]!
     var buldin: Bulding!
@@ -61,6 +66,10 @@ class RapportAnnuelViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         numcheckTOdo = 0
+        zoneRouge = 0
+        zonneBleu = 0
+        numZOneBlue = 0
+        numZoneRouge = 0
         
         self.ref = Database.database().reference(withPath: "BuldingStruct")
         ref.queryOrderedByKey().queryEqual(toValue: idbulding).observe(.value) { (data) in
@@ -213,46 +222,85 @@ class RapportAnnuelViewController: UIViewController {
 
     @IBAction func sendRapport(_ sender: Any) {
         
-        let A4paperSize = CGSize(width: 595, height: 842)
-        let pdf = SimplePDF(pageSize: A4paperSize)
-        pdf.addImage(UIImage(named: "logo")!)
-        
         if numcheckDid == numcheckTOdo {
-            print("ok")
-        }
-        for (key,item) in myRapport {
-            pdf.addText(key)
-            for local in item {
-                 pdf.addText(local.title)
-                 pdf.addText(local.description)
-                 pdf.addText("\(local.rating)")
-                if (local.tabImage?.count)! > 0 {
+            
+            let date = Date()
+            let dateformat = DateFormatter()
+            dateformat.dateFormat = "dd.MM.yyyy"
+            
+            let A4paperSize = CGSize(width: 595, height: 842)
+            let pdf = SimplePDF(pageSize: A4paperSize)
+            let uiimage = UIImage(named: "logo")
+            let myimage = uiimage?.resized(withPercentage: 0.10)
+            pdf.setContentAlignment(.right)
+            pdf.addImage(myimage!)
+            pdf.addText("CheckClean", font: UIFont(name: "Dopestyle", size: CGFloat(30))!, textColor: UIColor.blue)
+            pdf.addText(dateformat.string(from: date))
+            pdf.setContentAlignment(.left)
+            pdf.addLineSpace(CGFloat(20))
+            pdf.addText(buldin.name!)
+            pdf.addLineSpace(CGFloat(20))
+            
+            for (key,item) in myRapport {
+                
+                pdf.addLineSpace(CGFloat(20))
+                pdf.addText(key)
+                pdf.addLineSpace(CGFloat(20))
+                for local in item {
+                    pdf.addText(local.title)
+                    pdf.addLineSpace(CGFloat(20))
+                    pdf.addText(local.description)
+                    
+                    if let nameK = kitchenette.currentTitle, let nameW = self.wc.currentTitle, let nameR = restaurant.currentTitle, let nameD = douche.currentTitle{
+                        if key == nameK || key == nameW || key == nameR || key == nameD {
+                            self.zoneRouge = zoneRouge + local.rating
+                            numZoneRouge = numZoneRouge + 1
+                        } else {
+                            self.zonneBleu = zonneBleu + local.rating
+                            numZOneBlue = numZOneBlue + 1
+                        }
+                    }
+                    pdf.addText(String(local.rating))
+                    
+                    if (local.tabImage?.count)! > 0 {
                         if let imgs = local.tabImage {
-                        
+                            pdf.addLineSpace(CGFloat(20))
                             for img in imgs {
-                                pdf.addImage(img)
+                                let imgsize = img.resized(toWidth: 100.0)
+                                pdf.addImage(imgsize!)
+                                pdf.addLineSpace(CGFloat(20))
                             }
                         }
                     }
+                    pdf.addLineSeparator()
+                    pdf.addLineSpace(CGFloat(20))
                 }
-        }
-        
-        let pdfData = pdf.generatePDFdata()
-        
-        if MFMailComposeViewController.canSendMail() {
+            }
             
-            self.messageController = MFMailComposeViewController()
-            self.messageController.mailComposeDelegate = self
-            messageController.setSubject("Control")
-            messageController.setMessageBody("Un message de test avec pièce jointe", isHTML: false)
             
-            messageController.addAttachmentData(pdfData, mimeType: "application/pdf", fileName: "example.pdf")
-            self.present(messageController, animated: true)
+            let r = numZoneRouge * 4
+            let b = numZOneBlue * 4
+            
+            let p = ( (zoneRouge * 100 ) / Float( r) ) * 0.6
+            let z = ( (zonneBleu * 100 ) / Float( b) ) * 0.4
+            pdf.addText("pourcentage \(p + z)", font: UIFont(name: "Bright-Script-Clean", size: CGFloat(20))!, textColor: UIColor.blue)
+            
+            let pdfData = pdf.generatePDFdata()
+            
+            ref = Database.database().reference(withPath: "Controls-Bulding")
+            let idControl = ref.childByAutoId().key
+            let info = [
+                "note" : Float(p + z),
+                "date" : dateformat.string(from: date)
+                ] as [String : Any]
+            ref.child(buldin.id).child(idControl).setValue(info)
+            
+            let activityViewController = UIActivityViewController(activityItems: [pdfData], applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView = self.view
+            activityViewController.excludedActivityTypes = [ UIActivityType.airDrop, UIActivityType.postToFacebook ]
+            self.present(activityViewController, animated: true, completion: nil)
+            
         }
-        else {
-            print("cannot send mail")
-        }
-        
     }
     
 }

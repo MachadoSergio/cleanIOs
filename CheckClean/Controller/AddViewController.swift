@@ -40,6 +40,10 @@ class AddViewController: UIViewController {
         showToast("\(sender.value.rounded(.down))")
     }
     
+    @IBAction func tapClose() {
+        self.view.endEditing(true)
+    }
+    
     @IBAction func btnSendRapport(_ sender: Any) {
         if let title = local.text, let des = desc.text, let rate = raiting?.value{
             if pictures.count == 0 {

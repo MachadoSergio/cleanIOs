@@ -15,6 +15,9 @@
 		4802CA9C2095CE6A00227E61 /* CheckCleanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4802CA9B2095CE6A00227E61 /* CheckCleanTests.swift */; };
 		4802CAA72095CE6A00227E61 /* CheckCleanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4802CAA62095CE6A00227E61 /* CheckCleanUITests.swift */; };
 		48201E5620C01608000D2B0E /* RapportAnnuelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48201E5520C01608000D2B0E /* RapportAnnuelViewController.swift */; };
+		4824883C20C6B55900CB7692 /* Dopestyle.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4824883A20C6B55800CB7692 /* Dopestyle.ttf */; };
+		4824883D20C6B55900CB7692 /* Bright Script Clean.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4824883B20C6B55900CB7692 /* Bright Script Clean.ttf */; };
+		4824883F20C6D2DB00CB7692 /* aidememoire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4824883E20C6D2DB00CB7692 /* aidememoire.swift */; };
 		4826212120C1567500CAD882 /* PicturesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4826212020C1567500CAD882 /* PicturesCollectionViewCell.swift */; };
 		4829434620B89C64000C81BA /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4829434520B89C64000C81BA /* TeamViewController.swift */; };
 		482BB6E920B81AB90029A367 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482BB6E820B81AB90029A367 /* TabBarViewController.swift */; };
@@ -30,6 +33,7 @@
 		483AFC1B20B4CED000F2E81C /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483AFC1A20B4CED000F2E81C /* DatabaseManager.swift */; };
 		484665EF20C2278000556493 /* ZoneControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484665EE20C2277F00556493 /* ZoneControl.swift */; };
 		484665F120C22A4E00556493 /* DictionaryRapport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484665F020C22A4E00556493 /* DictionaryRapport.swift */; };
+		4847247820C572B80033B381 /* UiimageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4847247720C572B80033B381 /* UiimageExtension.swift */; };
 		48691E2E20A6036D00DA66B4 /* UserDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48691E2D20A6036D00DA66B4 /* UserDb.swift */; };
 		48C30AE8209AFDB400E3CC64 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 48C30AE7209AFDB400E3CC64 /* GoogleService-Info.plist */; };
 		48FCB28620A5962B0048AE63 /* Bulding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FCB28520A5962B0048AE63 /* Bulding.swift */; };
@@ -67,6 +71,9 @@
 		4802CAA62095CE6A00227E61 /* CheckCleanUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckCleanUITests.swift; sourceTree = "<group>"; };
 		4802CAA82095CE6A00227E61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48201E5520C01608000D2B0E /* RapportAnnuelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RapportAnnuelViewController.swift; sourceTree = "<group>"; };
+		4824883A20C6B55800CB7692 /* Dopestyle.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Dopestyle.ttf; sourceTree = "<group>"; };
+		4824883B20C6B55900CB7692 /* Bright Script Clean.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bright Script Clean.ttf"; sourceTree = "<group>"; };
+		4824883E20C6D2DB00CB7692 /* aidememoire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aidememoire.swift; sourceTree = "<group>"; };
 		4826212020C1567500CAD882 /* PicturesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesCollectionViewCell.swift; sourceTree = "<group>"; };
 		4829434520B89C64000C81BA /* TeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
 		482BB6E820B81AB90029A367 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +89,7 @@
 		483AFC1A20B4CED000F2E81C /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		484665EE20C2277F00556493 /* ZoneControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneControl.swift; sourceTree = "<group>"; };
 		484665F020C22A4E00556493 /* DictionaryRapport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryRapport.swift; sourceTree = "<group>"; };
+		4847247720C572B80033B381 /* UiimageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiimageExtension.swift; sourceTree = "<group>"; };
 		48691E2D20A6036D00DA66B4 /* UserDb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDb.swift; sourceTree = "<group>"; };
 		48C30AE7209AFDB400E3CC64 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		48FCB28520A5962B0048AE63 /* Bulding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bulding.swift; sourceTree = "<group>"; };
@@ -140,6 +148,8 @@
 		4802CA852095CE6A00227E61 /* CheckClean */ = {
 			isa = PBXGroup;
 			children = (
+				4824883620C6B09300CB7692 /* fonts */,
+				4847247620C5726C0033B381 /* extension */,
 				482BB6E720B7E9A80029A367 /* data */,
 				48FCB28420A596090048AE63 /* model */,
 				4802CAB42095DE0800227E61 /* Controller */,
@@ -190,6 +200,15 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		4824883620C6B09300CB7692 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4824883B20C6B55900CB7692 /* Bright Script Clean.ttf */,
+				4824883A20C6B55800CB7692 /* Dopestyle.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		482BB6E720B7E9A80029A367 /* data */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +225,14 @@
 			path = db;
 			sourceTree = "<group>";
 		};
+		4847247620C5726C0033B381 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				4847247720C572B80033B381 /* UiimageExtension.swift */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
 		48FCB28420A596090048AE63 /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +241,7 @@
 				48691E2D20A6036D00DA66B4 /* UserDb.swift */,
 				484665EE20C2277F00556493 /* ZoneControl.swift */,
 				484665F020C22A4E00556493 /* DictionaryRapport.swift */,
+				4824883E20C6D2DB00CB7692 /* aidememoire.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -305,7 +333,7 @@
 				TargetAttributes = {
 					4802CA822095CE6A00227E61 = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					4802CA962095CE6A00227E61 = {
 						CreatedOnToolsVersion = 9.2;
@@ -344,6 +372,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4824883C20C6B55900CB7692 /* Dopestyle.ttf in Resources */,
+				4824883D20C6B55900CB7692 /* Bright Script Clean.ttf in Resources */,
 				4802CA912095CE6A00227E61 /* LaunchScreen.storyboard in Resources */,
 				48C30AE8209AFDB400E3CC64 /* GoogleService-Info.plist in Resources */,
 				4802CA8E2095CE6A00227E61 /* Assets.xcassets in Resources */,
@@ -443,7 +473,9 @@
 				483AFC1620B4BF0E00F2E81C /* InscriptionViewController.swift in Sources */,
 				48691E2E20A6036D00DA66B4 /* UserDb.swift in Sources */,
 				483AFC1320B4BF0E00F2E81C /* BuldingStructurViewController.swift in Sources */,
+				4824883F20C6D2DB00CB7692 /* aidememoire.swift in Sources */,
 				48FCB28620A5962B0048AE63 /* Bulding.swift in Sources */,
+				4847247820C572B80033B381 /* UiimageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,13 +643,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YZ9ULCU5S6;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 9XJL9L64JM;
 				INFOPLIST_FILE = CheckClean/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = SEMM.CheckClean;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SEMM.CheckClean;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "b70b75b3-a199-4eff-ad94-3aa301717071";
+				PROVISIONING_PROFILE_SPECIFIER = "Formation iOS";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -629,13 +662,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YZ9ULCU5S6;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 9XJL9L64JM;
 				INFOPLIST_FILE = CheckClean/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = SEMM.CheckClean;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SEMM.CheckClean;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "b70b75b3-a199-4eff-ad94-3aa301717071";
+				PROVISIONING_PROFILE_SPECIFIER = "Formation iOS";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
