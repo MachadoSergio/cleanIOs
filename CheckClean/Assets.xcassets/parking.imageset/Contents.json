@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "parking.png",
+      "filename" : "parking copy.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "parking.png",
       "scale" : "2x"
     },
     {

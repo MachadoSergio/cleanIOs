@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,9 +17,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-           FirebaseApp.configure()
         
-        // Override point for customization after application launch.
+        FirebaseApp.configure()
+        IQKeyboardManager.sharedManager().enable = true
+        
+        let navigationBarAppearace = UINavigationBar.appearance()
+        navigationBarAppearace.tintColor = UIColor(cgColor: ColorNav().getColorWhite())
+        navigationBarAppearace.barTintColor = UIColor(cgColor: ColorNav().getColorNav())
+        navigationBarAppearace.titleTextAttributes = [
+            NSAttributedStringKey.foregroundColor: UIColor(cgColor: ColorNav().getColorWhite())
+        ]
+        
+        let tabBarAppearace = UITabBar.appearance()
+        tabBarAppearace.tintColor = UIColor(cgColor: ColorNav().getColorWhite())
+        tabBarAppearace.barTintColor = UIColor(cgColor: ColorNav().getColorNav())
+        
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
 

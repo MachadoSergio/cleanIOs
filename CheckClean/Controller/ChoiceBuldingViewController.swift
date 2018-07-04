@@ -7,38 +7,54 @@
 //
 
 import UIKit
+import Lottie
 import Firebase
 
 class ChoiceBuldingViewController: UIViewController {
     
+    @IBOutlet weak var textListBulding: UILabel!
     var ref: DatabaseReference!
     var tabBulding = [Bulding]()
     var currentUser: User!
-
+    let animationView = LOTAnimationView(name: "checkclean")
+    
     @IBOutlet weak var choiceBulding: UIPickerView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if  Auth.auth().currentUser == nil {
+        textListBulding.text = NSLocalizedString("TEXT_TITLE_LIST_BULDING", comment: "")
         
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let view = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-            view.modalTransitionStyle = .flipHorizontal
-            view.delegate = self as! protoLogin
-            self.navigationController?.present(view, animated: true, completion: nil)
+        animationView.frame = CGRect(x: 0, y: 100, width: self.view.frame.width, height: self.view.frame.height/5)
+        self.view.addSubview(animationView)
+        animationView.animationSpeed = CGFloat(2)
+        animationView.play()
         
-        }
+       currentUserExiste()
         
     }
     
     @IBAction func btnAddBulding(_ sender: Any) {
     }
     
+    func currentUserExiste() {
+        if  Auth.auth().currentUser == nil {
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let view = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+            view.modalTransitionStyle = .flipHorizontal
+            view.delegate = self as! protoLogin
+            self.navigationController?.present(view, animated: true, completion: nil)
+            
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
+        currentUserExiste()
+        animationView.play()
         
         self.tabBulding.removeAll()
-        self.tabBulding.append(Bulding(name: "Veuillez selectione un Bâtiment", address: ""))
+        self.tabBulding.append(Bulding(name: NSLocalizedString("TEXT_LIST_BULDING", comment: ""), address: ""))
         self.choiceBulding.reloadAllComponents()
         self.currentUser = Auth.auth().currentUser
         
@@ -70,6 +86,7 @@ class ChoiceBuldingViewController: UIViewController {
                         for bulding in dataSnapshop.children {
                             self.tabBulding.append(Bulding(snap: bulding as! DataSnapshot))
                         }
+                        
                         self.choiceBulding.reloadAllComponents()
                     }
                 }
@@ -96,11 +113,15 @@ extension ChoiceBuldingViewController: UIPickerViewDelegate, UIPickerViewDataSou
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
         if row != 0 {
+            //sauvegarde des info du bâtiment dans l'user default
+            UserDefaults.standard.set(self.tabBulding[row].id, forKey: "BuldingId")
+            UserDefaults.standard.set(self.tabBulding[row].name, forKey: "BuldingName")
+            UserDefaults.standard.set(self.tabBulding[row].address, forKey: "BuldingAddress")
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let view = storyboard.instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
-            view.bulding = self.tabBulding[row]
                 
             self.navigationController?.pushViewController(view, animated: true)
         }

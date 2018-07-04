@@ -20,11 +20,29 @@ class TeamViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let bName = UserDefaults.standard.string(forKey: "BuldingName")
+        let bAddress = UserDefaults.standard.string(forKey: "BuldingAddress")
+        let bId = UserDefaults.standard.string(forKey: "BuldingId")
+        bulding = Bulding(name: bName!, address: bAddress!, id: bId!)
+        
     }
     override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.topItem?.title = bulding.name
+        
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "addUser"),style: .plain, target: self, action: #selector(addUser))
         findAllUsers()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
+    }
+    
+    @objc func addUser() {
+        let storyboard =  UIStoryboard(name: "Main", bundle: nil)
+        let view = storyboard.instantiateViewController(withIdentifier: "AddTeamViewController") as! AddTeamViewController
+        view.bulding = self.bulding
+        self.present(view, animated: true, completion: nil)
+    }
     func findAllUsers() {
         tabUser.removeAll()
         
@@ -63,8 +81,8 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListUserTableViewCell", for: indexPath) as! ListUserTableViewCell
-        cell.name.text = tabUser[indexPath.row].email
-        //ToDO ajouter phone number 
+        
+        cell.setCell(users: tabUser[indexPath.row]) 
         return cell
     }
     

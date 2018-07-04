@@ -9,18 +9,35 @@
 import UIKit
 
 class ToDOViewController: UIViewController {
+   
     
-    var bulding: Bulding!
+    
+    var bulding: Bulding = Bulding(name: "", address: "")
 
     @IBOutlet weak var todoTableview: UITableView!
     @IBOutlet weak var todoLabel: UITextField!
+    @IBOutlet weak var btnTodo: UIButton!
+    
     
     var listTodo = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
+        self.navigationController?.navigationBar.topItem?.leftBarButtonItem?.title = NSLocalizedString("BTN_BACK", comment: "")
+        
+        todoLabel.placeholder = NSLocalizedString("PLACEHOLDER_TODO", comment: "")
+        btnTodo.setTitle(NSLocalizedString("BTN_TODO", comment: ""), for: .normal)
+        
+        let bName = UserDefaults.standard.string(forKey: "BuldingName")
+        let bAddress = UserDefaults.standard.string(forKey: "BuldingAddress")
+        let bId = UserDefaults.standard.string(forKey: "BuldingId")
+        bulding = Bulding(name: bName!, address: bAddress!, id: bId!)
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.topItem?.title = bulding.name
     }
     
     @IBAction func todoBtn(_ sender: Any) {
@@ -98,3 +115,4 @@ extension ToDOViewController: UITableViewDelegate, UITableViewDataSource{
         
     }
 }
+
